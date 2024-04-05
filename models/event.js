@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Event extends Model {}
 
-User.init(
+Event.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,19 +11,30 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userName: {
+    event_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
+    artist_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    password: {
+    event_time: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [4],
+    },
+    stage_time: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: { 
+      type: DataTypes.STRING,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
       },
     },
   },
@@ -32,8 +43,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'event',
   }
 );
 
-module.exports = User;
+module.exports = Event;
