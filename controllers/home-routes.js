@@ -2,18 +2,21 @@ const router = require('express').Router();
 const { User,Event } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    const eventData = await User.findAll({
+    console.log(req.session)
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
       include: [
         {
           model: Event,
         },
       ],
     });
-    const events = eventData.map((data)=> data.get({plain: true}));
-
-    res.render('home', {events, logged_in: req.session.logged_in});
+    const user = userData.toJSON()
+    res.render('home', {user, logged_in: req.session.logged_in});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -37,7 +40,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/form', (req, res) => {
+router.get('/form', withAuth, (req, res) => {
   res.render('form');
 });
 

@@ -1,11 +1,11 @@
 <div>
-  {{#each events}}
+  {{#each user.events}}
     <div class="card">
-      <p>Event Name:{{events.event_name}}</p>
-      <p>Artist Name:{{events.artist_name}}</p>
-      <p>Event Time:{{events.event_time}}</p>
-      <p>Stage Time:{{events.stage_time}}</p>
-      <p>Description:{{events.description}}</p>
+      <p>Event Name:{{event_name}}</p>
+      <p>Artist Name:{{artist_name}}</p>
+      <p>Event Time:{{event_time}}</p>
+      <p>Stage Time:{{stage_time}}</p>
+      <p>Description:{{description}}</p>
     </div>
   {{/each}}
 </div>

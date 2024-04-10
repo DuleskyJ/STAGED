@@ -10,15 +10,15 @@
 
 <body>
   <header class="display-flex justify-space-between align-center p-2">
-    <h1 class="neon">
-      STAGED
+    <h1>
+      <a class="neon" href="/">STAGED</a>
     </h1>
 
     <nav>
       {{#if logged_in}}
       <a class="neon" id="logout" href="/">Logout</a>
       {{else}}
-      <a class="neon" id="login" href="/login">Login</a> | <a class="neon" id="signup" href="/signup">Sign-Up</a>
+      <a class="neon" id="login" href="/login">Login</a> <span class="neon">|</span> <a class="neon" id="signup" href="/signup">Sign-Up</a>
       {{/if}}
     </nav>
 
