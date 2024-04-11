@@ -1,15 +1,24 @@
-const form = async () => {
+const fillData = async (event) => {
+
+    const eventName = document.querySelector('#event_name').value.trim();
+    const artistName = document.querySelector('#artist_name').value.trim();
+    const eventTime = document.querySelector('#event_time').value.trim();
+    const stageTime = document.querySelector('#stage_time').value.trim();
+    const description = document.querySelector('#description').value.trim();
+
     const response = await fetch('/api/users/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        body: JSON.stringify({eventName, artistName, eventTime, stageTime, description})
     });
-  
+
     if (response.ok) {
-      document.location.replace('/login');
+        document.location.replace('/');
     } else {
-      alert(response.statusText);
+        alert(response.statusText);
     }
-  };
+};
   
-  document.querySelector('#logout').addEventListener('click', logout);
-  
+document.querySelector('.btn').addEventListener('click', (e) => {
+    console.log("calling fill data");
+    fillData(e);
+});
