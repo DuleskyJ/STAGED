@@ -67,3 +67,10 @@ nav {
     width: auto;
     height: auto;
   }
+
+  .newEvent {
+    display: inline-block;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+  }

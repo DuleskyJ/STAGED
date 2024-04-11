@@ -41,7 +41,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/form', withAuth, (req, res) => {
-  res.render('form');
+  res.render('form', {logged_in: req.session.logged_in});
 });
 
 
