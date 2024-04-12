@@ -5,6 +5,7 @@ body {
     background-size: cover;
     width: 100vw;
     height: 100vh;
+    box-shadow: inset 20px 20px 200px 200px rgba(0, 0, 0, .35);
 }
 
 header {
@@ -17,15 +18,18 @@ header {
     justify-content: space-between;
 }
 
-/*footer {
-/*    display: flex;
-/*    flex-direction: row;
-/*    margin-top: auto;
-/*    background-color: rgb(55, 55, 55);
-/*    height: 8%;
-/*    justify-content: space-around;
-/*    align-items: center;
-/*} */
+footer {
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+    background-color: rgb(55, 55, 55);
+    height: 8%;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 0%;
+    position: fixed;
+    width: 100%;
+}
 
 h1 {
     font-family: 'Jost';
@@ -63,13 +67,15 @@ nav {
   }
 
   .card {
+    font-family: 'Jost';
     background-color: rgb(55, 55, 55);
-    width: 50%;
+    width: auto;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
+    padding: 2%;
     color: white;
   }
 
@@ -133,4 +139,49 @@ nav {
     -webkit-transform: rotateX(-360deg);
             transform: rotateX(-360deg);
   }
+}
+
+.form-card {
+  background-color: rgb(55, 55, 55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  color: white;
+  box-shadow: 0px 0px 20px 20px #cccccc4c;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text {
+  font-family: 'Jost';
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.addEvent {
+  margin-left: .5%;
+}
+
+.card-align {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5%;
 }
